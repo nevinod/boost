@@ -48,7 +48,7 @@ class App extends Component {
         </Header>
         <Divider hidden section />
         {problems && problems.length
-          ? <Button.Group vertical color='teal' fluid widths={problems.length} display='flex' flexDirection='column'>
+          ? <Button.Group vertical color='teal' fluid widths={problems.length}>
             {Object.keys(problems).map((key) => {
               return <Button active={problem && problem.id === problems[key].id} fluid key={key} onClick={() => this.getProblem(problems[key].id)}>
                 {problems[key].question}
