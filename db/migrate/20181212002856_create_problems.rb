@@ -3,7 +3,7 @@ class CreateProblems < ActiveRecord::Migration[5.1]
     create_table :problems do |t|
       t.string :question
       t.integer :difficulty
-      t.integer :answer
+      t.integer :correct
 
       t.timestamps
     end

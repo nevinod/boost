@@ -1,5 +1,4 @@
 class ProblemsController < ApiController
-  before_action :set_problem, only: [:show, :update, :destroy]
 
   # GET /problems
   def index
@@ -11,7 +10,7 @@ class ProblemsController < ApiController
   # GET /problems/1
   def show
     @problem = Problem.find(params[:id])
-    render json: @problem.to_json(:include => { :answers => { :only => [:id, :text, :value] }})
+    render json: @problem.to_json(:include => { :answers => { :only => [:id, :text] }})
   end
 
 end
