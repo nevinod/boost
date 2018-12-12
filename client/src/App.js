@@ -41,21 +41,21 @@ class App extends Component {
     return problems
       ? <Container text>
         <Header as='h2' icon textAlign='center' color='teal'>
-          <Icon name='unordered list' circular />
+          <Icon name='paperclip' circular />
           <Header.Content>
-            Answer Choices
+            Practice SAT Questions
           </Header.Content>
         </Header>
         <Divider hidden section />
         {problems && problems.length
-          ? <Button.Group color='teal' fluid widths={problems.length}>
+          ? <Button.Group vertical color='teal' fluid widths={problems.length} display='flex' flexDirection='column'>
             {Object.keys(problems).map((key) => {
               return <Button active={problem && problem.id === problems[key].id} fluid key={key} onClick={() => this.getProblem(problems[key].id)}>
                 {problems[key].question}
               </Button>
             })}
           </Button.Group>
-          : <Container textAlign='center'>No problems found.</Container>
+          : <Container >No problems found.</Container>
         }
         <Divider section />
         {problem &&
