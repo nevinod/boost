@@ -38,6 +38,7 @@ class App extends Component {
 
   render () {
     let {problems, problem} = this.state
+    console.log(this.state)
     return problems
       ? <Container text>
         <Header as='h2' icon textAlign='center' color='teal'>
