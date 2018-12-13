@@ -43,7 +43,7 @@ class App extends Component {
         <Header as='h2' icon textAlign='center' color='teal'>
           <Icon name='paperclip' circular />
           <Header.Content>
-            Practice SAT Questions
+            SAT Problems
           </Header.Content>
         </Header>
         <Divider hidden section />
