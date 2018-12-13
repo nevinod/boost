@@ -28,3 +28,17 @@ second_problem.answers.create(text: "0", value: 1)
 second_problem.answers.create(text: "2", value: 2)
 second_problem.answers.create(text: "5", value: 3)
 second_problem.answers.create(text: "9",value: 4)
+
+third_problem = Problem.create(
+  question: "What is the area of a circle with a radius of 2?",
+  difficulty: 1,
+  answer: 2
+)
+
+third_problem.answers.create(text: "4", value: 1)
+third_problem.answers.create(text: "4pi", value: 2)
+third_problem.answers.create(text: "2pi", value: 3)
+third_problem.answers.create(text: "16",value: 4)
+
+
+
