@@ -42,7 +42,7 @@ class App extends Component {
     return problems
       ? <Container text>
         <Header as='h2' icon textAlign='center' color='teal'>
-          <Icon name='paperclip' circular />
+          <Icon name='pencil' circular />
           <Header.Content>
             SAT Problems
           </Header.Content>
