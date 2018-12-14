@@ -46,7 +46,18 @@ class App extends Component {
 
   handleChange(e) {
     this.setState({ value: e.target.value });
-    console.log(this.state.value)
+    if (this.state.value === 'A' && this.state.problem.answer === 1 ) {
+      console.log('CORRECT')
+    } else if (this.state.value === 'B' && this.state.problem.answer === 2 ) {
+      console.log('CORRECT')
+    } else if (this.state.value === 'C' && this.state.problem.answer === 3 ) {
+      console.log('CORRECT')
+    } else if (this.state.value === 'D' && this.state.problem.answer === 4 ) {
+      console.log('CORRECT')
+    } else {
+      console.log("INCORRECT")
+    }
+
   }
 
   render () {

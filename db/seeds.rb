@@ -10,18 +10,18 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 first_problem = Problem.create(
   question: "Which of the following is equal to (14 - 2i)(7 + 2i)?  Remember i^2 = -1",
   difficulty: 2,
-  answer: 2
+  answer: 4
 )
 
 first_problem.answers.create(text: "74", value: 1)
 first_problem.answers.create(text: "122", value: 2)
-first_problem.answers.create(text: "74 + 154i", value: 3)
-first_problem.answers.create(text: "122 + 154i",value: 4)
+first_problem.answers.create(text: "122 + 154i", value: 3)
+first_problem.answers.create(text: "74 + 154i",value: 4)
 
 second_problem = Problem.create(
-  question: "What is the ninth digit of pi?",
+  question: "What is the eighth digit of pi?",
   difficulty: 4,
-  answer: 4
+  answer: 3
 )
 
 second_problem.answers.create(text: "0", value: 1)
