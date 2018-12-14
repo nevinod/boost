@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
+import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
 
 class App extends Component {
   constructor () {
     super()
-    this.state = {}
+    this.state = { value: '' }
     this.getProblems = this.getProblems.bind(this)
     this.getProblem = this.getProblem.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount () {
@@ -34,6 +36,17 @@ class App extends Component {
   getProblem (id) {
     this.fetch(`/api/problems/${id}`)
       .then(problem => this.setState({problem: problem}))
+  }
+
+  getValidationState() {
+    const length = this.state.value.length;
+    if (length > 1) return 'error';
+    return null;
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+    console.log(this.state.value)
   }
 
   render () {
@@ -69,6 +82,24 @@ class App extends Component {
             }
           </Container>
         }
+
+        <form>
+        <FormGroup
+          controlId="formBasicText"
+          validationState={this.getValidationState()}
+        >
+          <ControlLabel>Submit answer here: </ControlLabel>
+          <FormControl
+            type="text"
+            value={this.state.value}
+            placeholder="Enter text"
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+          <HelpBlock>Validation is based on string length.</HelpBlock>
+        </FormGroup>
+      </form>
+
       </Container>
       : <Container text>
         <Dimmer active inverted>
