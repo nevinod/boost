@@ -1,14 +1,16 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
-import { FormGroup, Radio } from 'react-bootstrap'
+import { Label } from 'react-bootstrap'
+
 
 class App extends Component {
   constructor () {
     super()
-    this.state = { value: '' }
+    this.state = { value: '', correct: undefined }
     this.getProblems = this.getProblems.bind(this)
     this.getProblem = this.getProblem.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
   componentDidMount () {
@@ -34,6 +36,7 @@ class App extends Component {
   }
 
   getProblem (id) {
+    this.setState({correct: undefined })
     this.fetch(`/api/problems/${id}`)
       .then(problem => this.setState({problem: problem}))
   }
@@ -44,28 +47,45 @@ class App extends Component {
     return null;
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
-    console.log(e)
-    this.setState({ value: e.target.value });
-    if (this.state.value === 'A' && this.state.problem.answer === 1 ) {
+  handleOptionChange(changeEvent) {
+    this.setState({
+      selectedOption: changeEvent.target.value
+    });
+  }
+
+  handleFormSubmit(formSubmitEvent) {
+    formSubmitEvent.preventDefault();
+
+    if (this.state.selectedOption === 'A' && this.state.problem.answer === 1 ) {
       this.setState({correct: true})
-    } else if (this.state.value === 'B' && this.state.problem.answer === 2 ) {
+    } else if (this.state.selectedOption === 'B' && this.state.problem.answer === 2 ) {
       this.setState({correct: true})
-    } else if (this.state.value === 'C' && this.state.problem.answer === 3 ) {
+    } else if (this.state.selectedOption === 'C' && this.state.problem.answer === 3 ) {
       this.setState({correct: true})
-    } else if (this.state.value === 'D' && this.state.problem.answer === 4 ) {
+    } else if (this.state.selectedOption === 'D' && this.state.problem.answer === 4 ) {
       this.setState({correct: true})
     } else {
       this.setState({correct: false})
     }
-    // console.log(this.state.correct)
 
+    console.log(this.state.correct)
   }
+
 
   render () {
     let {problems, problem} = this.state
     console.log(this.state)
+
+    let button = <div />
+    if(this.state.correct !== undefined) {
+      console.log("corect is not undefined")
+      if (this.state.correct) {
+        button = <Label bsStyle="success">Correct</Label>
+      } else {
+        button = <Label bsStyle="danger">Incorrect</Label>
+      }
+    }
+    
     return problems
       ? <Container text>
         <Header as='h2' icon textAlign='center' color='teal'>
@@ -97,24 +117,46 @@ class App extends Component {
           </Container>
         }
 
-      <form onSubmit={this.handleSubmit}>
-        <FormGroup>
-          <Radio name="radioGroup" inline>
-            A
-          </Radio>{' '}
-          <Radio name="radioGroup" inline>
-            B
-          </Radio>{' '}
-          <Radio name="radioGroup" inline>
-            C
-          </Radio>
-          <Radio name="radioGroup" inline>
-            D
-          </Radio>
-        </FormGroup>
-        
-        <Button type="submit">Submit</Button>
+      <form onSubmit={this.handleFormSubmit}>
+        <div className="radio">
+          <label>
+            <input type="radio" value="A" 
+                          checked={this.state.selectedOption === 'A'} 
+                          onChange={this.handleOptionChange} />
+             A
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" value="B" 
+                          checked={this.state.selectedOption === 'B'} 
+                          onChange={this.handleOptionChange} />
+             B
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" value="C" 
+                          checked={this.state.selectedOption === 'C'} 
+                          onChange={this.handleOptionChange} />
+             C
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" value="D" 
+                          checked={this.state.selectedOption === 'D'} 
+                          onChange={this.handleOptionChange} />
+             D
+          </label>
+        </div>
+
+        <button className="btn btn-default" type="submit">Submit</button>
       </form>
+
+      <div>
+        {button}
+      </div>
 
       </Container>
       : <Container text>

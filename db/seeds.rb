@@ -15,13 +15,13 @@ first_problem = Problem.create(
 
 first_problem.answers.create(text: "74", value: 1)
 first_problem.answers.create(text: "122", value: 2)
-first_problem.answers.create(text: "122 + 154i", value: 3)
-first_problem.answers.create(text: "74 + 154i",value: 4)
+first_problem.answers.create(text: "74 + 154i", value: 3)
+first_problem.answers.create(text: "122 + 154i",value: 4)
 
 second_problem = Problem.create(
   question: "What is the eighth digit of pi?",
   difficulty: 4,
-  answer: 3
+  answer: 4
 )
 
 second_problem.answers.create(text: "0", value: 1)
