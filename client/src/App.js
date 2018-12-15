@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
+import { FormGroup, Radio } from 'react-bootstrap'
 
 class App extends Component {
   constructor () {
@@ -8,7 +8,7 @@ class App extends Component {
     this.state = { value: '' }
     this.getProblems = this.getProblems.bind(this)
     this.getProblem = this.getProblem.bind(this)
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount () {
@@ -44,19 +44,22 @@ class App extends Component {
     return null;
   }
 
-  handleChange(e) {
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log(e)
     this.setState({ value: e.target.value });
     if (this.state.value === 'A' && this.state.problem.answer === 1 ) {
-      console.log('CORRECT')
+      this.setState({correct: true})
     } else if (this.state.value === 'B' && this.state.problem.answer === 2 ) {
-      console.log('CORRECT')
+      this.setState({correct: true})
     } else if (this.state.value === 'C' && this.state.problem.answer === 3 ) {
-      console.log('CORRECT')
+      this.setState({correct: true})
     } else if (this.state.value === 'D' && this.state.problem.answer === 4 ) {
-      console.log('CORRECT')
+      this.setState({correct: true})
     } else {
-      console.log("INCORRECT")
+      this.setState({correct: false})
     }
+    // console.log(this.state.correct)
 
   }
 
@@ -94,21 +97,23 @@ class App extends Component {
           </Container>
         }
 
-        <form>
-        <FormGroup
-          controlId="formBasicText"
-          validationState={this.getValidationState()}
-        >
-          <ControlLabel>Submit answer here: </ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.value}
-            placeholder="Enter text"
-            onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
-          <HelpBlock>Validation is based on string length.</HelpBlock>
+      <form onSubmit={this.handleSubmit}>
+        <FormGroup>
+          <Radio name="radioGroup" inline>
+            A
+          </Radio>{' '}
+          <Radio name="radioGroup" inline>
+            B
+          </Radio>{' '}
+          <Radio name="radioGroup" inline>
+            C
+          </Radio>
+          <Radio name="radioGroup" inline>
+            D
+          </Radio>
         </FormGroup>
+        
+        <Button type="submit">Submit</Button>
       </form>
 
       </Container>
