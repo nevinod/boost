@@ -8,7 +8,7 @@
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 first_problem = Problem.create(
-  question: "Which of the following is equal to (14 - 2i)(7 + 2i)?  Remember i^2 = -1",
+  question: "Which of the following is equal to (14 - 2i)(7 + 2i)?  Hint: i^2 = -1",
   difficulty: 2,
   answer: 4
 )

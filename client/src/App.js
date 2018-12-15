@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
-import { Label } from 'react-bootstrap'
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Label } from 'semantic-ui-react'
+
 
 
 class App extends Component {
@@ -41,12 +41,6 @@ class App extends Component {
       .then(problem => this.setState({problem: problem}))
   }
 
-  getValidationState() {
-    const length = this.state.value.length;
-    if (length > 1) return 'error';
-    return null;
-  }
-
   handleOptionChange(changeEvent) {
     this.setState({
       selectedOption: changeEvent.target.value
@@ -80,9 +74,9 @@ class App extends Component {
     if(this.state.correct !== undefined) {
       console.log("corect is not undefined")
       if (this.state.correct) {
-        button = <Label bsStyle="success">Correct</Label>
+        button = <a class="ui green label">Correct</a>
       } else {
-        button = <Label bsStyle="danger">Incorrect</Label>
+        button = <a class="ui red label">Incorrect</a>
       }
     }
     
