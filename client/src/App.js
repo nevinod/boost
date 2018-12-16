@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Label, Radio } from 'semantic-ui-react'
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
 import RadioExampleRadioGroup from './AnswerForm.js'
 
 
@@ -41,6 +41,10 @@ class App extends Component {
       .then(problem => this.setState({problem: problem}))
   }
 
+  componentDidUpdate () {
+
+  }
+
   handleOptionChange(changeEvent) {
     this.setState({
       selectedOption: changeEvent.target.value
@@ -74,9 +78,9 @@ class App extends Component {
     if(this.state.correct !== undefined) {
       console.log("corect is not undefined")
       if (this.state.correct) {
-        button = <a class="ui green label">Correct</a>
+        button = <div class="ui green label">Correct</div>
       } else {
-        button = <a class="ui red label">Incorrect</a>
+        button = <div class="ui red label">Incorrect</div>
       }
     }
     
@@ -111,49 +115,7 @@ class App extends Component {
           </Container>
         }
 
-        <div className="radio-container" >
-          <form onSubmit={this.handleFormSubmit} className="rform" >
-              <label>
-                <input type="radio" value="A" id="rbutton"
-                              checked={this.state.selectedOption === 'A'} 
-                              onChange={this.handleOptionChange} />
-                 A
-              </label>
-            
-            
-              <label>
-                <input type="radio" value="B" id="rbutton"
-                              checked={this.state.selectedOption === 'B'} 
-                              onChange={this.handleOptionChange} />
-                 B
-              </label>
-            
-            
-              <label>
-                <input type="radio" value="C" id="rbutton"
-                              checked={this.state.selectedOption === 'C'} 
-                              onChange={this.handleOptionChange} />
-                 C
-              </label>
-            
-            
-              <label>
-                <input type="radio" value="D" id="rbutton"
-                              checked={this.state.selectedOption === 'D'} 
-                              onChange={this.handleOptionChange} />
-                 D
-              </label>
-            
-
-            <button className="btn btn-default" type="submit">Submit</button>
-          </form>
-
-          <div>
-            {button}
-          </div>
-        </div>
-
-        <RadioExampleRadioGroup />
+        <RadioExampleRadioGroup answer={this.state.problem} />
 
 
       </Container>
