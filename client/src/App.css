@@ -37,5 +37,10 @@
   justify-content: flex-start;
 }
 
+.radio-container {
+  display: flex;
+  flex-direction: row;
+}
+
 
 
