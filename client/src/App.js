@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Label } from 'semantic-ui-react'
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Label, Radio } from 'semantic-ui-react'
 
 
 
@@ -111,42 +111,42 @@ class App extends Component {
           </Container>
         }
 
-      <form onSubmit={this.handleFormSubmit}>
-        <div className="radio">
-          <label>
-            <input type="radio" value="A" 
-                          checked={this.state.selectedOption === 'A'} 
-                          onChange={this.handleOptionChange} />
-             A
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="B" 
-                          checked={this.state.selectedOption === 'B'} 
-                          onChange={this.handleOptionChange} />
-             B
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="C" 
-                          checked={this.state.selectedOption === 'C'} 
-                          onChange={this.handleOptionChange} />
-             C
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="D" 
-                          checked={this.state.selectedOption === 'D'} 
-                          onChange={this.handleOptionChange} />
-             D
-          </label>
-        </div>
+        <form onSubmit={this.handleFormSubmit} className="rform" >
+            <label>
+              <input type="radio" value="A" id="rbutton"
+                            checked={this.state.selectedOption === 'A'} 
+                            onChange={this.handleOptionChange} />
+               A
+            </label>
+          
+          
+            <label>
+              <input type="radio" value="B" id="rbutton"
+                            checked={this.state.selectedOption === 'B'} 
+                            onChange={this.handleOptionChange} />
+               B
+            </label>
+          
+          
+            <label>
+              <input type="radio" value="C" id="rbutton"
+                            checked={this.state.selectedOption === 'C'} 
+                            onChange={this.handleOptionChange} />
+               C
+            </label>
+          
+          
+            <label>
+              <input type="radio" value="D" id="rbutton"
+                            checked={this.state.selectedOption === 'D'} 
+                            onChange={this.handleOptionChange} />
+               D
+            </label>
+          
 
-        <button className="btn btn-default" type="submit">Submit</button>
-      </form>
+          <button className="btn btn-default" type="submit">Submit</button>
+        </form>
+
 
       <div>
         {button}
