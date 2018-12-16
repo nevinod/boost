@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Label, Radio } from 'semantic-ui-react'
-
+import RadioExampleRadioGroup from './AnswerForm.js'
 
 
 class App extends Component {
@@ -152,6 +152,9 @@ class App extends Component {
             {button}
           </div>
         </div>
+
+        <RadioExampleRadioGroup />
+
 
       </Container>
       : <Container text>

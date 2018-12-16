@@ -1,30 +1,36 @@
-import React, { Component, PropTypes } from 'react'
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Form, Radio } from 'semantic-ui-react'
 
-class AnswerForm extends Component {
-  constructor () {
-    super()
-    this.state = { value: '' }
+export default class RadioExampleRadioGroup extends Component {
+  state = {}
+  handleChange = (e, { value }) => this.setState({ value })
+
+  render() {
+  	const { value } = this.state
+    return (
+      <Form onSubmit={this.handleFormSubmit}>
+        <Form.Group inline>
+          <label>Size</label>
+          <Form.Radio
+            label='Small'
+            value='sm'
+            checked={value === 'sm'}
+            onChange={this.handleChange}
+          />
+          <Form.Radio
+            label='Medium'
+            value='md'
+            checked={value === 'md'}
+            onChange={this.handleChange}
+          />
+          <Form.Radio
+            label='Large'
+            value='lg'
+            checked={value === 'lg'}
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+      </Form>
+    )
   }
-
-  getValidationState() {
-    const length = this.state.value.length;
-    if (length > 1) return 'error';
-    return null;
-  }
-
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-    if (this.state.value === 'A' && this.state.problem.answer === 1 ) {
-      console.log('CORRECT')
-    } else if (this.state.value === 'B' && this.state.problem.answer === 2 ) {
-      console.log('CORRECT')
-    } else if (this.state.value === 'C' && this.state.problem.answer === 3 ) {
-      console.log('CORRECT')
-    } else if (this.state.value === 'D' && this.state.problem.answer === 4 ) {
-      console.log('CORRECT')
-    } else {
-      console.log("INCORRECT")
-    }
-
-  }
+}
