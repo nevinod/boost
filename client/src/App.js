@@ -66,13 +66,13 @@ class App extends Component {
       this.setState({correct: false})
     }
 
-    console.log(this.state.correct)
+    // console.log(this.state.correct)
   }
 
 
   render () {
     let {problems, problem} = this.state
-    console.log(this.state)
+    // console.log(this.state)
 
     let button = <div />
     if(this.state.correct !== undefined) {
@@ -112,10 +112,13 @@ class App extends Component {
                 {problem.answers.map((answer, i) => <Segment key={i}>{answer.text}</Segment>)}
               </Segment.Group>
             }
+
           </Container>
         }
 
         <RadioExampleRadioGroup answer={this.state.problem} />
+
+        
 
 
       </Container>

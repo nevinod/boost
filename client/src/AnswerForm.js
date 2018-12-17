@@ -4,17 +4,20 @@ import { Form } from 'semantic-ui-react'
 export default class RadioExampleRadioGroup extends Component {
 	constructor() {
 	  super()
-	  this.state = {correct: null}
+	  this.state = {correct: null, value: null}
 	  this.handleFormSubmit = this.handleFormSubmit.bind(this)
 	  this.handleChange = this.handleChange.bind(this)
 	}
 
-	handleChange = (e, { value }) => this.setState({ value })
+	handleChange = (e, { value }) => {
+		e.preventDefault()
+		this.setState({ value })
+		// console.log(this.props.answer.answer)
+		// console.log(this.state.value)
+	}
 
 	handleFormSubmit (e) {
-		e.preventDefault()
-  		// console.log(this.state)
-  		console.log(this.props.answer)
+		e.preventDefault()  		
 
   		if (this.state.value === 'first' && this.props.answer.answer === 1 ) {
       		this.setState({correct: true})
