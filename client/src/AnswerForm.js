@@ -11,17 +11,23 @@ export default class RadioExampleRadioGroup extends Component {
 
 	handleChange = (e, { value }) => {
 		e.preventDefault()
-		this.setState({ value })
-		// console.log(this.props.answer.answer)
-		// console.log(this.state.value)
+		this.setState({ value: value })
+		console.log(`this.props.answer.answer = ${this.props.answer.answer}`)
+		console.log(`value = ${value}`)
+		console.log(`this.state.value = ${this.state.value}`)
+	}
+
+	componentDidMount() {
+		this.setState({ value: 'first' })
 	}
 
 	handleFormSubmit (e) {
-		e.preventDefault()  		
+		// e.preventDefault()  		
 
   		if (this.state.value === 'first' && this.props.answer.answer === 1 ) {
       		this.setState({correct: true})
 	    } else if (this.state.value === 'second' && this.props.answer.answer === 2 ) {
+	    	console.log("ANSWER AND CHECKBOX MATCH")
 	    	this.setState({correct: true})
 	    } else if (this.state.value === 'third' && this.props.answer.answer === 3 ) {
 	      	this.setState({correct: true})
