@@ -65,14 +65,11 @@ class App extends Component {
     } else {
       this.setState({correct: false})
     }
-
-    // console.log(this.state.correct)
   }
 
 
   render () {
     let {problems, problem} = this.state
-    // console.log(this.state)
 
     let button = <div />
     if(this.state.correct !== undefined) {
@@ -116,7 +113,10 @@ class App extends Component {
           </Container>
         }
 
-        <RadioExampleRadioGroup answer={this.state.problem} />
+        <Divider >
+          <RadioExampleRadioGroup answer={this.state.problem} />
+        </Divider>
+
 
         
 

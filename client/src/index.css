@@ -7,3 +7,11 @@ body {
 #root {
   padding: 25px;
 }
+
+.ui.red.label {
+  margin-top: 4%;
+}
+
+.ui.teal.label {
+  margin-top: 4%;
+}
