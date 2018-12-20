@@ -86,7 +86,7 @@ class App extends Component {
         <Header as='h2' icon textAlign='center' color='teal'>
           <Icon name='pencil' circular />
           <Header.Content>
-            SAT Problems
+            SAT Practice
           </Header.Content>
         </Header>
         <Divider hidden section />

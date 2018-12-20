@@ -8,10 +8,13 @@ body {
   padding: 25px;
 }
 
-.ui.red.label {
+div.ui.red.label {
   margin-top: 4%;
+  margin-right: 2.5%;
 }
 
-.ui.teal.label {
+div.ui.teal.label {
   margin-top: 4%;
+  margin-right: 2.5%;
 }
+

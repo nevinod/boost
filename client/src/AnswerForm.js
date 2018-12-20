@@ -15,12 +15,7 @@ export default class RadioExampleRadioGroup extends Component {
 			{ value: value },
 			() => console.log(`this.state.value = ${this.state.value}`)
 		)
-		console.log(`this.props.answer.answer = ${this.props.answer.answer}`)
-		console.log(`value = ${value}`)
-	}
-
-	componentDidMount() {
-		this.setState({ value: 'first' })
+		console.log(this.props)
 	}
 
 	handleFormSubmit (e) {
