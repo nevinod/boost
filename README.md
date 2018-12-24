@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app that allows students to practice for the SAT. Features will include:
 
 Things you may want to cover:
 
-* Ruby version
+* User authentication
 
-* System dependencies
+* Progress tracking
 
-* Configuration
+* Sorting of questions by difficulty
 
-* Database creation
+* Feedback, including areas of weakness
 
-* Database initialization
+* and more...
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
