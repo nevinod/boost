@@ -50,6 +50,7 @@ class App extends Component {
       selectedOption: changeEvent.target.value
     });
   }
+  
 
   handleFormSubmit(formSubmitEvent) {
     formSubmitEvent.preventDefault();
